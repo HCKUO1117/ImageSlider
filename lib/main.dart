@@ -30,10 +30,6 @@ class MyPage extends StatefulWidget {
 }
 
 class _MyPageState extends State<MyPage> {
-  PageController pageController = PageController(); //maybe don't need this?
-  late PageView pageView; //maybe don't need this?
-  int currentIndex = 0; //maybe don't need this?
-
   var images = [
     //images paths list
     'assets/ocean-1.png',
