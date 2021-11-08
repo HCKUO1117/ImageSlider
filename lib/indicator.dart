@@ -27,15 +27,15 @@ class Indicator extends StatelessWidget {
   }) : super(key: key);
 
   Widget _renderItem(int index) {
-    bool isSelected = currentIndex == index ? false : true;
+    bool isSelected = currentIndex == index ? true : false;
 
-    Color color = isSelected ? this.dotColor : this.dotSelectedColor;
+    Color color = isSelected ? this.dotSelectedColor : this.dotColor;
 
-    BoxShape boxShape = isSelected ? BoxShape.circle : BoxShape.rectangle;
+    BoxShape boxShape = isSelected ? BoxShape.rectangle : BoxShape.circle;
 
-    double padding = isSelected ? dotPadding : (dotPadding - (dotSize / 2));
+    double padding = isSelected ? (dotPadding - (dotSize / 2)) : dotPadding;
 
-    double opacity = isSelected ? unSelectedOpacity : selectOpacity;
+    double opacity = isSelected ? selectOpacity : unSelectedOpacity;
 
     return GestureDetector(
       child: Padding(
@@ -43,13 +43,12 @@ class Indicator extends StatelessWidget {
         child: Opacity(
           opacity: opacity,
           child: Container(
-            width: currentIndex == index ? dotSize * 2 : dotSize,
+            width: isSelected ? dotSize * 2 : dotSize,
             height: dotSize,
             decoration: BoxDecoration(
               shape: boxShape,
               color: color,
-              borderRadius:
-                  currentIndex == index ? BorderRadius.circular(dotSize) : null,
+              borderRadius: isSelected ? BorderRadius.circular(dotSize) : null,
             ),
           ),
         ),
