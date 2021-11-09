@@ -159,7 +159,7 @@ class Indicator extends StatelessWidget {
   Widget _renderItem(int index) {
     bool isSelected = currentIndex == index ? true : false;
 
-    Color color = isSelected ? this.dotSelectedColor : this.dotColor;
+    Color color = isSelected ? dotSelectedColor : dotColor;
 
     BoxShape boxShape = isSelected ? BoxShape.rectangle : BoxShape.circle;
 
@@ -191,7 +191,7 @@ class Indicator extends StatelessWidget {
 
   ///計算indicator寬度
   double getWidth() {
-    return dotSize * (dotCount + 1) + this.dotPadding * (dotCount + 5);
+    return dotSize * (dotCount + 1) + dotPadding * (dotCount*2);
   }
 
   ///計算indicator高度
